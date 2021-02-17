@@ -1,0 +1,12 @@
+GET http://{{host}}:{{port}}/feeds
+Accept: application/json
+
+###
+POST http://{{host}}:{{port}}/feeds
+Content-Type: application/json
+Accept: application/json
+
+"http://feeds2.feedburner.com/stadt-bremerhaven/dqXM"
+
+
+###

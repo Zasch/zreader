@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: zreader
+
+  liquibase:
+    enabled: false
+    change-log: "classpath:/db/changelog/master.yml"
+    database-change-log-lock-table: LB_CHANGELOG_LOCK
+    database-change-log-table: LB_CHANGELOG
+
+  quartz:
+    auto-startup: true
+    job-store-type: memory
+    jdbc:
+      initialize-schema: embedded
+    properties:
+      org.quartz.scheduler.instanceId: AUTO
+
+  h2:
+    console:
+      enabled: true
+      path: /h2
+
+  datasource:
+    url: jdbc:h2:~/test;AUTO_SERVER=TRUE #;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+logging:
+  level:
+    de.carinaundzasch.zreader.ZreaderApplication: INFO
+
+de.carinaundzasch.jobs:
+  feed:
+    update:
+      cron: "0/30 * * * * ?"

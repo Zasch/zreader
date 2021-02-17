@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: init_schema.sql
+      author: Sascha Müller <zasch@carinaundzasch.de>
+      runAlways: true
+      runOnChange: true
+      changes:
+        - sqlFile:
+            dbms: h2
+            encoding: utf8
+            path: v1/init_schema.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            stripComments: true
