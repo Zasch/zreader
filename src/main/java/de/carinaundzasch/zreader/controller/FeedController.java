@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -16,7 +17,8 @@ public class FeedController {
     private final FeedService feedService;
 
     @GetMapping
-    public ResponseEntity<List<Feed>> getAllFeeds() {
+    public ResponseEntity<List<Feed>> getAllFeeds(Principal principal) {
+        System.err.println("Principal: " + principal.getName());
         return ResponseEntity.ok(feedService.getAllFeeds());
     }
 

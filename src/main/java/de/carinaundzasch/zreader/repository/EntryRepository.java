@@ -10,4 +10,6 @@ public interface EntryRepository extends JpaRepository<Entry, Long> {
 
     List<Entry> findAllByFeedId(Long id);
 
+    List<Entry> findAllByFeed(Feed feed);
+
 }

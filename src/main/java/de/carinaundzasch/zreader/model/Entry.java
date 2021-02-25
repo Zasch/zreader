@@ -23,42 +23,48 @@ public class Entry {
     @SequenceGenerator(name = "entry_id_seq", sequenceName = "entry_id_seq", allocationSize = 1)
     private Long id;
 
-    private Long feedId;
+    // TODO
+//    private Long feedId;
+
+    @ManyToOne
+    private Feed feed;
 
     @FullTextField(searchable = Searchable.YES)
     private String title;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private Content titleEx;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    private Content titleEx;
 
     private String author;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Author> authors;
+//    @OneToMany(cascade = CascadeType.ALL)
+//    private List<Author> authors;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Author> contributors;
+//    @OneToMany(cascade = CascadeType.ALL)
+//    private List<Author> contributors;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Category> categories;
+//    @OneToMany(cascade = CascadeType.ALL)
+//    private List<Category> categories;
+
+    @Column(columnDefinition = "TEXT")
+    private String content;
 
     private String comments;
 
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "entry")
-    private Content description;
+    private String description;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Enclosure> enclosures;
+//    @OneToMany(cascade = CascadeType.ALL)
+//    private List<Enclosure> enclosures;
 
 //    @FullTextField(searchable = Searchable.YES)
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "entry")
-    private List<Content> contents;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "entry")
+//    private List<Content> contents;
 
     @FullTextField(searchable = Searchable.YES)
     private String link;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Link> links;
+//    @OneToMany(cascade = CascadeType.ALL)
+//    private List<Link> links;
 
     private Instant publishedDate;
 

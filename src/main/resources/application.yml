@@ -30,11 +30,32 @@ spring:
     hibernate:
       ddl-auto: create-drop
 
+keycloak:
+  realm: master
+  auth-server-url: http://localhost:8081/auth
+  ssl-required: external
+  resource: zreader
+  credentials:
+    secret: 94d1949d-d746-47b8-be57-95bf26e38efb
+  use-resource-role-mappings: true
+  principal-attribute: preferred_username
+  security-constraints:
+    - authRoles:
+        - user
+      securityCollections:
+        - patterns:
+            - /feeds
+            - /feeds/
+
 logging:
   level:
     de.carinaundzasch.zreader.ZreaderApplication: INFO
 
-de.carinaundzasch.jobs:
-  feed:
-    update:
-      cron: "0/30 * * * * ?"
+de.carinaundzasch:
+  data:
+    icons:
+      path: "/Users/samu/Desktop/icons"
+  jobs:
+    feed:
+      update:
+        cron: "0/30 * * * * ?"
